@@ -1,0 +1,109 @@
+/* Basera public pages — deletion request and privacy policy.
+   Deliberately one small stylesheet, no fonts or scripts fetched from
+   anywhere: these pages must load for a Play reviewer in an incognito
+   window, on a phone, possibly on a slow connection. */
+
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #1b1b1f;
+  --muted: #55565b;
+  --rule: #e2e2e8;
+  --accent: #4b4ba3;
+  --owner-bg: #fff6e5;
+  --owner-fg: #6b4a00;
+  --owner-rule: #e8b23a;
+  --fill-bg: #ffe3e3;
+  --fill-fg: #8a1c1c;
+  --note-bg: #f2f3f8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #16161a;
+    --fg: #ececf1;
+    --muted: #a9aab2;
+    --rule: #303038;
+    --accent: #b3b3ff;
+    --owner-bg: #3a2e12;
+    --owner-fg: #ffdf9e;
+    --owner-rule: #a37a1d;
+    --fill-bg: #4a1f1f;
+    --fill-fg: #ffc9c9;
+    --note-bg: #21222a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.eyebrow {
+  margin: 0 0 .25rem;
+  color: var(--muted);
+  font-size: .875rem;
+  letter-spacing: .02em;
+}
+
+h1 { font-size: 1.75rem; line-height: 1.25; margin: 0 0 1rem; }
+h2 { font-size: 1.25rem; margin: 2rem 0 .5rem; }
+h3 { font-size: 1.05rem; margin: 1.25rem 0 .35rem; }
+
+p, ul { margin: 0 0 1rem; }
+ul { padding-left: 1.25rem; }
+li { margin-bottom: .35rem; }
+
+.lede { font-size: 1.05rem; }
+
+a { color: var(--accent); }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0 1rem; }
+
+.meta { color: var(--muted); font-size: .9rem; }
+
+.note {
+  background: var(--note-bg);
+  border-radius: .5rem;
+  padding: .75rem 1rem;
+}
+
+/* An unresolved business/legal fact. Loud on purpose: if one of these
+   reaches a published page, the page is making an empty statement. */
+.fill {
+  background: var(--fill-bg);
+  color: var(--fill-fg);
+  padding: .05em .35em;
+  border-radius: .25rem;
+  font-weight: 600;
+  font-size: .95em;
+}
+
+.notice {
+  border-radius: .5rem;
+  padding: .9rem 1rem;
+  margin: 0 0 1.5rem;
+}
+
+.notice--owner {
+  background: var(--owner-bg);
+  color: var(--owner-fg);
+  border: 1px solid var(--owner-rule);
+}
+
+@media (max-width: 30rem) {
+  main { padding: 1.5rem 1rem 3rem; }
+  h1 { font-size: 1.5rem; }
+}
